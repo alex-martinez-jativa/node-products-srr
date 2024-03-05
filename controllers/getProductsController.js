@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 
 import getProducts from '../services/getProducts.js';
 import getHTMLTemplate from '../utils/getHTMLTemplate.js';
+import renderHTML from '../utils/renderHTML.js';
 
 const getProductsController = async (req, res) => {
   try {
@@ -18,7 +19,7 @@ const getProductsController = async (req, res) => {
 
     const productListHTML = getHTMLTemplate(products, productTemplate);
 
-    const renderedHTML = data.toString().replace('{{productList}}', productListHTML);
+    const renderedHTML = renderHTML(data, productListHTML);
 
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(renderedHTML);
