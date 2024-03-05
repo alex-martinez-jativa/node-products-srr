@@ -1,4 +1,4 @@
-# Simple vanilla node js product list application
+# Vanilla Node.js product list application
 
 Server-side rendering application built with vanilla Node.js.
 
