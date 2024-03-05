@@ -1,0 +1,16 @@
+{
+  "name": "products-ssr",
+  "version": "1.0.0",
+  "description": "Simple product list app with ssr and vanilla node js",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js --watch"
+  },
+  "author": "Alex Martinez",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
