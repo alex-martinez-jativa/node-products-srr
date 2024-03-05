@@ -3,6 +3,7 @@ import fs from 'fs/promises';
 import { parse } from 'url';
 
 import getProducts from './services/getProducts.js';
+import getHTMLTemplate from './utils/getHTMLTemplate.js';
 
 const server = createServer( async (req, res) => {
   const path = parse(req.url).pathname;
@@ -13,12 +14,14 @@ const server = createServer( async (req, res) => {
       
       const data = await fs.readFile('./views/index.html', 'utf-8');
 
-      const productListHTML = products.map(product => `
+      const productTemplate = product => `
         <li>
             <h3>${product.title}</h3>
             <p>${product.description}</p>
         </li>
-      `).join('');
+      `;
+
+      const productListHTML = getHTMLTemplate(products, productTemplate);
 
       const renderedHTML = data.toString().replace('{{productList}}', productListHTML);
 
